@@ -1,4 +1,7 @@
 convert.py
-courses.csv
 courses.db
+courses.csv
 courses.xlsx
+requirements.csv
+requirements.xlsx
+freq.py
