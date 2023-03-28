@@ -49,7 +49,7 @@ class QueryBuilder():
     def join(self, table, on_cond):
         if self._select and not (self._join or self._where):
             self._join = True
-            self._qstr += f' JOIN {table} r ON {on_cond}'
+            self._qstr += f' JOIN {table} ON {on_cond}'
 
         return self
 
@@ -86,7 +86,7 @@ if __name__ == '__main__':
 
     if args.prerequisite:
         prerequisites = args.prerequisite.split(',')
-        query = query.join('Requirements', 'c.Course_ID = r.Requiring_ID').where('r.Required_ID', prerequisites)
+        query = query.join('Requirements r', 'c.Course_ID = r.Requiring_ID').where('r.Required_ID', prerequisites)
 
     if args.semester:
         semesters = [int(s) for s in args.semester.split(',')]
